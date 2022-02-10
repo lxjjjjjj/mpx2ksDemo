@@ -1,8 +1,8 @@
 <template>
   <view>'this is test model'</view>
-  <input wx:model="{{val}}"/>
-  <input wx:model="{{test.val}}"/>
-  <input wx:model="{{test['val']}}"/>
+  <input wx:model="{{val}}" class='input'/>
+  <input wx:model="{{test.val}}" class='input'/>
+  <input wx:model="{{test['val']}}" class='input'/>
 </template>
 
 <script>
@@ -22,6 +22,9 @@
 </script>
 
 <style lang="stylus">
+  .input{
+    border: 1px #0f0 solid;
+  }
 </style>
 
 <script type="application/json">
