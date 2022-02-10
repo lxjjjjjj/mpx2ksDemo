@@ -1,0 +1,64 @@
+<script>
+  import mpx, { createApp } from '@mpxjs/core'
+  import apiProxy from '@mpxjs/api-proxy'
+
+  mpx.use(apiProxy, { usePromise: true })
+  mpx.mixin({
+    onLoad (params) {
+      console.log('onLoad')
+    }
+  }, 'page')
+  createApp({
+  })
+</script>
+
+<style>
+  /*此处编写全局样式*/
+</style>
+
+<script type="application/json">
+  {
+    "pages": [
+      "./pages/index",
+      "./pages/home",
+      "./pages/component",
+      "./pages/button"
+    ],
+    "window": {
+      "navigationBarBackgroundColor": "#ffffff",
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "快手接口功能演示",
+      "backgroundColor": "#eeeeee",
+      "backgroundTextStyle": "light"
+    },
+    "tabBar": {
+      color:"#f00",
+      selectedColor:"#0f0",	
+      backgroundColor:"#fff",	
+      borderStyle:"black",
+      list:[{
+      pagePath:"pages/index",
+      text:"aaa",
+      iconPath:"./image.png",
+      selectedIconPath:"./image.png"
+    },{
+      pagePath:"pages/home",
+      text:"aaa",
+      iconPath:"./image.png",
+      selectedIconPath:"./image.png"
+    },{
+      pagePath:"pages/component",
+      text:"aaa",
+      iconPath:"./image.png",
+      selectedIconPath:"./image.png"
+    },{
+      pagePath:"pages/button",
+      text:"aaa",
+      iconPath:"./image.png",
+      selectedIconPath:"./image.png"
+    }],
+      position:"bottom",
+      custom:false
+    }
+  }
+</script>

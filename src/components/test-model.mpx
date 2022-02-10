@@ -1,0 +1,31 @@
+<template>
+  <view>'this is test model'</view>
+  <input wx:model="{{val}}"/>
+  <input wx:model="{{test.val}}"/>
+  <input wx:model="{{test['val']}}"/>
+</template>
+
+<script>
+  import { createComponent } from '@mpxjs/core'
+
+  createComponent({
+    properties:{
+      obj:Object
+    },
+    data: {
+      val: 'test',
+      test: {
+        val: 'xxx'
+      }
+    }
+  })
+</script>
+
+<style lang="stylus">
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents":{}
+  }
+</script>

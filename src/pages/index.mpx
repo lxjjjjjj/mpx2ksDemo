@@ -1,0 +1,76 @@
+<template>
+  <input type="text" class='input'/>
+  <view>{{message}}</view>
+  <test-model/>
+  <component is="test"></component>
+  <customCheck />
+  <list-view color="black">
+    <view slot="before">这里是插入到组件slot name="before"中的内容</view>
+    <view slot="after">这里是插入到组件slot name="after"中的内容</view>
+  </list-view>
+  <view-ref wx:ref="thisRef"/>
+  <view wx:ref="viewRef" class="viewRef">'hhhhhhhhhh'</view>
+  <scrollView wx:ref="scrollView"/>
+  <image src="../image.png"/>
+</template>
+
+<script>
+  import { createPage } from '@mpxjs/core'
+  import myBehaviors from '../behaviors/myBehaviors'
+  createPage({
+    mixins:[myBehaviors],
+    behaviors:[myBehaviors],
+    data: {
+      checked: true,
+      val: 'test',
+      test: {
+        val: 'xxx'
+      },
+      message:'nnnn'
+    },
+    watch:{
+      message:{
+        handler(val){
+          console.log('message',val)
+        }
+      }
+    },
+    // onReady: function () {
+      // console.log('thisRef',this.$refs.thisRef.createSelectorQuery().selectViewport())
+      // console.log('this.$refs.scrollView',this.$refs.scrollView.createSelectorQuery().selectViewport().scrollOffset(function(res) {
+      //       console.log('res',res)
+      //       res.id // 节点的ID
+      //       res.dataset // 节点的dataset
+      //       res.scrollLeft // 节点的水平滚动位置
+      //       res.scrollTop // 节点的竖直滚动位置
+      //   }).exec())
+    // },
+    methods:{
+      checkedChange(){
+        console.log('checkedChange')
+      }
+    }
+  })
+</script>
+<style>
+  .viewRef{
+    width: 300px;
+    height: 300px;
+    background-color: #0f0;
+  }
+  .input{
+    border: 1px #0f0 solid;
+  }
+  </style>
+<script type="application/json">
+  {
+    "usingComponents": {
+      "list-view": "../components/list",
+      "scrollView":"../components/scrollView",
+      "view-ref":"../components/viewRef",
+      "test":"../components/test",
+      "customCheck": "../components/customCheck",
+      "test-model":"../components/test-model"
+    }
+  }
+</script>

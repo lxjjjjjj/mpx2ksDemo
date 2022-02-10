@@ -1,0 +1,32 @@
+<template>
+  <view bindtap="handleTap" class="viewProps">{{checkedProp}}</view>
+</template>
+
+<style lang="stylus">
+  .viewProps {
+    width 100px
+    height 100px
+    color #000
+  }
+</style>
+
+<script>
+  import {createComponent} from '@mpxjs/core'
+  createComponent({
+    properties: {
+      checkedProp: Boolean,
+      o:Object
+    },
+    methods: {
+      handleTap () {
+        // 这里第二个参数为自定义事件的detail，需要以下面的形式传递值以保持与原生组件对齐
+        this.triggerEvent('checkedChange', {
+          value: !this.checkedProp
+        })
+      }
+    },
+    attached(){
+      console.log(this.o)
+    }
+  })
+</script>

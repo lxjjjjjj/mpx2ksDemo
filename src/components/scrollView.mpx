@@ -1,0 +1,154 @@
+<template>
+  <view class='total'>
+    <view class='wrap'>
+      <view class='title'>
+        <view>纵向滚动</view>
+        <view class='tit-right'>scroll-y</view>
+      </view>
+      <view class='center'>
+        <scroll-view
+          class='scl-vy'
+          scroll-y
+          bindscroll='scroll'
+          bindscrolltolower='scrollToLower'
+          bindscrolltoupper='scrollToUpper'
+          scroll-top='{{scrollTop}}'
+          scroll-into-view='{{toView}}'
+        >
+          <view id='orangered' class='con orangered'>A</view>
+          <view id='orangered1' class='con orangered1'>B</view>
+          <view id='orangered2' class='con orangered2'>C</view>
+        </scroll-view>
+      </view>
+      <view class='title btns'>
+        <view type="primary" class='btn-con' bindtap='tap'>next</view>
+        <view type="primary" class='btn-con' bindtap='tapMove'>move</view>
+        <view type="primary" class='btn-con' bindtap='scrollToTop'>toTop</view>
+      </view>
+    </view>
+    <view class='wrap'>
+      <view class='title'>
+        <view>横向滚动</view>
+        <view class='tit-right'>scroll-x</view>
+      </view>
+      <view class='center'>
+        <scroll-view class='scl-vx' scroll-x="true">
+          <view id='orangered' class='con inline orangered'>A</view>
+          <view id='orangered1' class='con inline orangered1'>B</view>
+          <view id='orangered2' class='con inline orangered2'>C</view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import { createComponent } from '@mpxjs/core'
+  const order=['A','B','C']
+  createComponent({
+    data: {
+    toView: 'C',
+    scrollTop: 0,
+    scrollLeft: 200
+  },
+  methods:{
+    scroll(e){
+    console.log('bindScroll',e)
+  },
+  scrollToLower(e){
+    console.log('scrollToLower',e)
+    ks.showToast({
+      title:'到底啦',
+      icon:'none'
+    })
+  },
+  scrollToUpper(e){
+    console.log('scrollToUpper',e)
+    ks.showToast({
+      title:'到顶啦',
+      icon:'none'
+    })
+  },
+  scrollToTop() {
+    this.setData({
+      scrollTop: 0
+    })
+  },
+  tap() {
+    for (let i = 0; i < order.length; ++i) {
+      if (order[i] === this.data.toView) {
+        const next = (i + 1) % order.length;
+        this.setData({
+          toView: order[next],
+          scrollTop: next * 150,
+        });
+        break;
+      }
+    }
+  },
+  tapMove() {
+    this.setData({
+      scrollTop: this.data.scrollTop + 10
+    })
+  }
+  
+  }
+  })
+</script>
+
+<style lang="stylus">
+  .scl-vy,.scl-vx{
+  width: 70vw;
+  height: 150px;
+}
+.scl-vx{
+  background-color: #ccc;
+}
+.con{
+  width: 70vw;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+}
+.title{
+  font-size: 18px;
+  display: flex;
+  justify-content:space-between;
+}
+.tit-right{
+  font-size: 12px;
+  color: #666;
+}
+.center{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-con{
+  text-align: center;
+  font-size: 14px;
+  color: #576B95;
+  border-radius: 2px;
+  border: 1px solid #576B95;
+  width: 50px;
+  height: 25px;
+  line-height: 25px;
+}
+.inline {
+  display: inline-flex;
+}
+.btns {
+  width: 70vw;
+  margin: 10px auto 0;
+}
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents":{}
+  }
+</script>
