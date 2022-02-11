@@ -1,5 +1,6 @@
 <template>
   <view bindtap="handleTap" class="viewProps">{{checkedProp}}</view>
+  <view>{{o.a}}</view>
 </template>
 
 <style lang="stylus">
