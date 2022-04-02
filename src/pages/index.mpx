@@ -1,5 +1,5 @@
 <template>
-  <input type="text" class='input'/>
+  <input type="text" class='input' wx:model-event="change"/>
   <view>{{message}}</view>
   <test-model/>
   <component is="test"></component>
@@ -46,8 +46,11 @@
       //   }).exec())
     // },
     methods:{
-      checkedChange(){
+      change(){
         console.log('checkedChange')
+      },
+      handleInput(e){
+        console.log('e.detail',e.detail)
       }
     }
   })

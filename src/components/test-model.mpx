@@ -1,5 +1,6 @@
 <template>
   <view>'this is test model'</view>
+  <view class="text">{{test.val}}</view>
   <input wx:model="{{val}}" class='input'/>
   <input wx:model="{{test.val}}" class='input'/>
   <input wx:model="{{test['val']}}" class='input'/>
@@ -24,6 +25,12 @@
 <style lang="stylus">
   .input{
     border: 1px #0f0 solid;
+  }
+  .text{
+    width 100%
+    height 30px
+    font-size 14px
+    color #f00
   }
 </style>
 
