@@ -1,5 +1,5 @@
 <template>
-  <input type="text" class='input' wx:model-event="change"/>
+  <input type="text" class='input' value="{{message}}"/>
   <view>{{message}}</view>
   <test-model/>
   <component is="test"></component>
