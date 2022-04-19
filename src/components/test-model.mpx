@@ -1,7 +1,7 @@
 <template>
   <view>'this is test model'</view>
   <view class="text">{{test.val}}</view>
-  <input wx:model="{{val}}" class='input'/>
+  <input wx:model="{{val}}" class='input' placeholder-class='text'/>
   <input wx:model="{{test.val}}" class='input'/>
   <input wx:model="{{test['val']}}" class='input'/>
 </template>
